@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct CollapsedPickerView: View {
+    
+    let title: String
+    let Description: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Text(title)
+                .foregroundStyle(.gray)
+            Spacer()
+            Text(Description)
+                .fontWeight(.semibold)
+        }
+       
+        
     }
 }
 
 #Preview {
-    CollapsedPickerView()
+    CollapsedPickerView(title: "When", Description: "Add dates")
 }
