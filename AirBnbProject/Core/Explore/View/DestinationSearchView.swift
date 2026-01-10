@@ -20,12 +20,13 @@ struct DestinationSearchView: View {
     @Binding var isSearchActive: Bool
     @State var dates:String = ""
     @State var guests: String = ""
-    @State var destinations: String = ""
+    @EnvironmentObject var Viewmodel:ExploreViewModel
     var body: some View {
         VStack{
             HStack{
                 Button {
                     withAnimation(.snappy){
+                        Viewmodel.updateListingsForLocation()
                         isSearchActive.toggle() }
                     
                 } label: {
@@ -35,9 +36,10 @@ struct DestinationSearchView: View {
                 }
                 Spacer()
                 
-                if !destinations.isEmpty{
+                if !Viewmodel.searchLocation.isEmpty{
                         Button {
-                            destinations = ""
+                            Viewmodel.searchLocation = ""
+                            Viewmodel.updateListingsForLocation()
                         } label: {
                             Text("Clear")
                                 .foregroundStyle(.black)
@@ -56,8 +58,12 @@ struct DestinationSearchView: View {
                         HStack{
                             Image(systemName: "magnifyingglass")
                                 .imageScale(.small)
-                            TextField("Search destinations...", text: $destinations)
+                            TextField("Search destinations...", text: $Viewmodel.searchLocation)
                                 .font(.subheadline)
+                                .onSubmit {
+                                    Viewmodel.updateListingsForLocation()
+                                    isSearchActive.toggle()
+                                }
                                 
                         }
                         .frame(height: 44)

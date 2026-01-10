@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @StateObject var ViewModel = ExploreViewModel(service: ExploreService())
     @State private var showDestinationSearchView: Bool = false
     var body: some View {
         NavigationStack{
             if showDestinationSearchView{
                 DestinationSearchView(isSearchActive: $showDestinationSearchView)
+                    
             }else{
-                SearchFilterBar()
+                SearchFilterBar(location: $ViewModel.searchLocation)
                     .onTapGesture {
                         withAnimation(.snappy){
                            showDestinationSearchView.toggle()
@@ -23,15 +25,15 @@ struct ExploreView: View {
                     .padding(.horizontal)
                 ScrollView{
                     LazyVStack(spacing:32){
-                        ForEach(1...10, id: \.self){ listing in
+                        ForEach(ViewModel.listings){ listing in
                             NavigationLink(value: listing) {
-                                ListingsItemView()
+                                ListingsItemView(listings: listing)
                             }
                         }.padding(.top,30)
                     }
                 }
-                .navigationDestination(for: Int.self) { listing in
-                    ListingDetailView()
+                .navigationDestination(for: Listing.self) { listing in
+                    ListingDetailView( listings: listing)
                         .navigationBarBackButtonHidden()
                         .toolbarBackground(.hidden, for: .navigationBar)
 
@@ -40,7 +42,7 @@ struct ExploreView: View {
             }
           
             
-        }
+        }.environmentObject(ViewModel)
     }
 }
 #Preview {
