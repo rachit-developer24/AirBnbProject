@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		92E50D8C2F16C9ED00F96C19 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 92E50D8B2F16C9ED00F96C19 /* FirebaseAuth */; };
+		92E50D8E2F16C9ED00F96C19 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 92E50D8D2F16C9ED00F96C19 /* FirebaseDatabase */; };
+		92E50D902F16C9ED00F96C19 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 92E50D8F2F16C9ED00F96C19 /* FirebaseFirestore */; };
+		92E50D922F16C9ED00F96C19 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 92E50D912F16C9ED00F96C19 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9293ECE92F05E172008E7E91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,6 +36,23 @@
 		9293ECF22F05E172008E7E91 /* AirBnbProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirBnbProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		92E50D992F16CDD400F96C19 /* Exceptions for "AirBnbProjectUITests" folder in "AirBnbProject" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 9293ECD72F05E170008E7E91 /* AirBnbProject */;
+		};
+		92E50D9A2F16CDD400F96C19 /* Exceptions for "AirBnbProjectUITests" folder in "AirBnbProjectTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"GoogleService-Info.plist",
+			);
+			target = 9293ECE72F05E172008E7E91 /* AirBnbProjectTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9293ECDA2F05E170008E7E91 /* AirBnbProject */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -42,6 +66,10 @@
 		};
 		9293ECF52F05E172008E7E91 /* AirBnbProjectUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				92E50D992F16CDD400F96C19 /* Exceptions for "AirBnbProjectUITests" folder in "AirBnbProject" target */,
+				92E50D9A2F16CDD400F96C19 /* Exceptions for "AirBnbProjectUITests" folder in "AirBnbProjectTests" target */,
+			);
 			path = AirBnbProjectUITests;
 			sourceTree = "<group>";
 		};
@@ -52,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92E50D8E2F16C9ED00F96C19 /* FirebaseDatabase in Frameworks */,
+				92E50D922F16C9ED00F96C19 /* FirebaseStorage in Frameworks */,
+				92E50D8C2F16C9ED00F96C19 /* FirebaseAuth in Frameworks */,
+				92E50D902F16C9ED00F96C19 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +144,10 @@
 			);
 			name = AirBnbProject;
 			packageProductDependencies = (
+				92E50D8B2F16C9ED00F96C19 /* FirebaseAuth */,
+				92E50D8D2F16C9ED00F96C19 /* FirebaseDatabase */,
+				92E50D8F2F16C9ED00F96C19 /* FirebaseFirestore */,
+				92E50D912F16C9ED00F96C19 /* FirebaseStorage */,
 			);
 			productName = AirBnbProject;
 			productReference = 9293ECD82F05E170008E7E91 /* AirBnbProject.app */;
@@ -195,6 +231,9 @@
 			);
 			mainGroup = 9293ECCF2F05E170008E7E91;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				92E50D8A2F16C9ED00F96C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9293ECD92F05E170008E7E91 /* Products */;
 			projectDirPath = "";
@@ -552,6 +591,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		92E50D8A2F16C9ED00F96C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92E50D8B2F16C9ED00F96C19 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E50D8A2F16C9ED00F96C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		92E50D8D2F16C9ED00F96C19 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E50D8A2F16C9ED00F96C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		92E50D8F2F16C9ED00F96C19 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E50D8A2F16C9ED00F96C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		92E50D912F16C9ED00F96C19 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92E50D8A2F16C9ED00F96C19 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9293ECD02F05E170008E7E91 /* Project object */;
 }

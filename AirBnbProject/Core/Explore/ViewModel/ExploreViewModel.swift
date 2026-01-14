@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@MainActor
 class ExploreViewModel:ObservableObject{
     @Published var listings = [Listing]()
     @Published var searchLocation:String = ""

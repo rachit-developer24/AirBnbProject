@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Foundation
+import CoreLocation
 
 struct Listing: Identifiable, Codable,Hashable {
     let id: String
@@ -36,9 +36,12 @@ struct Listing: Identifiable, Codable,Hashable {
     var features: [ListingFeatures]
     var amenities: [ListingAmenities]
     let type: ListingType
+    
+    var coordinates:CLLocationCoordinate2D{
+        return .init(latitude: latitude, longitude: longitude)
+    }
 }
 
-// MARK: - Features
 
 enum ListingFeatures: Int, Codable, Identifiable, Hashable {
     case selfCheckIn
@@ -70,7 +73,6 @@ enum ListingFeatures: Int, Codable, Identifiable, Hashable {
     var id: Int { self.rawValue }
 }
 
-// MARK: - Amenities
 
 enum ListingAmenities: Int, Codable, Identifiable, Hashable {
     case pool
@@ -111,7 +113,6 @@ enum ListingAmenities: Int, Codable, Identifiable, Hashable {
     var id: Int { self.rawValue }
 }
 
-// MARK: - Listing Type
 
 enum ListingType: Int, Codable, Identifiable, Hashable {
     case apartment

@@ -16,11 +16,11 @@ struct MainTabView: View {
                 }
             WishlistsView()
                 .tabItem {
-                    Label("Explore",systemImage: "heart")
+                    Label("Wishlists",systemImage: "heart")
                 }
             ProfileView()
                 .tabItem {
-                    Label("Explore",systemImage: "person.circle")
+                    Label("Profile",systemImage: "person.circle")
                 }
         }
     }
